@@ -15,7 +15,7 @@ public class Main {
 
 
         Monster mon1 = new Monster(10,10);
-        Player player = new Player(1,1);
+        Player player = new Player( t.getTerminalSize().getColumns()/2,t.getTerminalSize().getRows()/2 );
 
         t.setCursorVisible(false);
         KeyStroke keyStroke = null;
