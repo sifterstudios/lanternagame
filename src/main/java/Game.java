@@ -10,12 +10,13 @@ public class Game {
         Sound.music.playLooped();
         DefaultTerminalFactory d = new DefaultTerminalFactory();
         Terminal t = d.createTerminal();
-        Panel gamePanel = new Panel();
 
         Monster mon1 = new Monster(10,10);
-        Player player = new Player();
+        Player player = Player.getInstance();
         player.setX(t.getTerminalSize().getColumns()/2);
-        player.setX(t.getTerminalSize().getRows()/2);
+        player.setY(t.getTerminalSize().getRows()/2);
+
+
 
         t.setCursorVisible(false);
         KeyStroke keyStroke = null;
