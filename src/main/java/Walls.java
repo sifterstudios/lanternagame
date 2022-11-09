@@ -6,6 +6,8 @@ import java.util.List;
 
 public class Walls {
 
+
+    /*
     static final char block = '\u2588';
     static List<Position> positions = new ArrayList<>() ;
 
@@ -83,6 +85,8 @@ public class Walls {
         return false ;
 
     }
+
+     */
 
 
 }
