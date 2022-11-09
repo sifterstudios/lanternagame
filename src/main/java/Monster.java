@@ -33,6 +33,7 @@ public class Monster extends Entity{
                 super.setY(super.getY()-1);
             }
             stepTimer = 0;
+            Sound.walk.play();
         }
         stepTimer++;
 
