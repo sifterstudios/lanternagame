@@ -33,7 +33,7 @@ public class Game {
                     if (Player.getInstance().getY() > 1) {
                         Player.getInstance().setY(Player.getInstance().getY() - 1);
                         Sound.walk.play();
-                        if(collisionChecker.hasColide(player.getX(),player.getY(),mon1.getX(),mon1.getY() ) )
+                        if(collisionChecker.hasColide(Player.getInstance().getX(),Player.getInstance().getY(),mon1.getX(),mon1.getY() ) )
                             System.out.println("wwwwww");// gameover
                     }
                     break;
@@ -41,7 +41,7 @@ public class Game {
                     if (Player.getInstance().getY() < t.getTerminalSize().getRows() - 1) {
                         Player.getInstance().setY(Player.getInstance().getY() + 1);
                         Sound.walk.play();
-                        if(collisionChecker.hasColide(player.getX(),player.getY(),mon1.getX(),mon1.getY() ) )
+                        if(collisionChecker.hasColide(Player.getInstance().getX(),Player.getInstance().getY(),mon1.getX(),mon1.getY() ) )
                             System.out.println("ssssss");
                     }
                     break;
@@ -49,7 +49,7 @@ public class Game {
                     if (Player.getInstance().getX() > 1) {
                         Player.getInstance().setX(Player.getInstance().getX() - 1);
                         Sound.walk.play();
-                        if(collisionChecker.hasColide(player.getX(),player.getY(),mon1.getX(),mon1.getY() ) )
+                        if(collisionChecker.hasColide(Player.getInstance().getX(),Player.getInstance().getY(),mon1.getX(),mon1.getY() ) )
                             System.out.println("aaaaaaaa");
                     }
                     break;
@@ -57,7 +57,7 @@ public class Game {
                     if (Player.getInstance().getX() < t.getTerminalSize().getColumns() - 1) {
                         Player.getInstance().setX(Player.getInstance().getX() + 1);
                         Sound.walk.play();
-                        if(collisionChecker.hasColide(player.getX(),player.getY(),mon1.getX(),mon1.getY() ) )
+                        if(collisionChecker.hasColide(Player.getInstance().getX(),Player.getInstance().getY(),mon1.getX(),mon1.getY() ) )
                             System.out.println("dddddddd");
                     }
                     break;
