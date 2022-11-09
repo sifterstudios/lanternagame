@@ -26,17 +26,31 @@ public class Game {
                 keyStroke = t.pollInput();
             } while (keyStroke == null);
 
-            if (keyStroke.getCharacter() == 'w') {
-                player.setY(player.getY()-1);
-            }
-            if (keyStroke.getCharacter() == 's') {
-                player.setY(player.getY()+1);
-            }
-            if (keyStroke.getCharacter() == 'a') {
-                player.setX(player.getX()-1);
-            }
-            if (keyStroke.getCharacter() == 'd') {
-                player.setX(player.getX()+1);
+            switch (keyStroke.getCharacter()) {
+                case 'w':
+                    if (player.getY() > 1) {
+                        player.setY(player.getY() - 1);
+                        Sound.walk.play();
+                    }
+                    break;
+                case 's':
+                    if (player.getY() < t.getTerminalSize().getRows() - 1) {
+                        player.setY(player.getY() + 1);
+                        Sound.walk.play();
+                    }
+                    break;
+                case 'a':
+                    if (player.getX() > 1) {
+                        player.setX(player.getX() - 1);
+                        Sound.walk.play();
+                    }
+                    break;
+                case 'd':
+                    if (player.getX() < t.getTerminalSize().getColumns() - 1) {
+                        player.setX(player.getX() + 1);
+                        Sound.walk.play();
+                    }
+                    break;
             }
             t.clearScreen();
 
