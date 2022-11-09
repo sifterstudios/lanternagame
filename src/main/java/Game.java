@@ -1,3 +1,4 @@
+import com.googlecode.lanterna.gui2.Panel;
 import com.googlecode.lanterna.input.KeyStroke;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
@@ -9,15 +10,18 @@ public class Game {
         Sound.music.playLooped();
         DefaultTerminalFactory d = new DefaultTerminalFactory();
         Terminal t = d.createTerminal();
-
-
+        Panel gamePanel = new Panel();
 
         Monster mon1 = new Monster(10,10);
-        Player player = new Player( t.getTerminalSize().getColumns()/2,t.getTerminalSize().getRows()/2 );
+        Player player = new Player();
+        player.setX(t.getTerminalSize().getColumns()/2);
+        player.setX(t.getTerminalSize().getRows()/2);
 
         t.setCursorVisible(false);
         KeyStroke keyStroke = null;
 
+        new Thread(){
+        }.start();
 
         while (true) {
 
