@@ -6,7 +6,7 @@ import java.io.IOException;
 
 public class Game {
     public void run() throws IOException, InterruptedException {
-        Sound.music.play();
+        Sound.music.playLooped();
         DefaultTerminalFactory d = new DefaultTerminalFactory();
         Terminal t = d.createTerminal();
 
@@ -40,9 +40,8 @@ public class Game {
             }
             t.clearScreen();
 
-            Sound.walk.play();
             //monster(s)
-            mon1.monFlwPlayer(player.getX(), player.getY());
+            mon1.monsterFollowPlayer(player.getX(), player.getY());
             t.setCursorPosition(mon1.getX(), mon1.getY());
             t.putCharacter(mon1.monsterChar);
 

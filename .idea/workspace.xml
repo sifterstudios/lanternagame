@@ -4,27 +4,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d0aadc98-c7c3-43cf-8809-b6be0118ff0c" name="Changes" comment="Player starts from the middle">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Game.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/GameApplet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Sound.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/TK_death1.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/TK_gamestart1.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/TK_highscore_short.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/TK_menu.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/TK_music.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/TK_pickup_basic.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/TK_pickup_powerup.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/TK_powerup_appearing1.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/TK_walking1.wav" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+    <list default="true" id="d0aadc98-c7c3-43cf-8809-b6be0118ff0c" name="Changes" comment="Sound working!!">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Monster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Monster.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Sound.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Sound.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/TK_death1.wav" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/TK_death1.wav" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/TK_gamestart1.wav" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/TK_gamestart1.wav" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/TK_highscore_short.wav" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/TK_highscore_short.wav" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/TK_menu.wav" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/TK_menu.wav" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/TK_music.wav" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/TK_music.wav" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/TK_pickup_basic.wav" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/TK_pickup_basic.wav" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/TK_pickup_powerup.wav" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/TK_pickup_powerup.wav" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/TK_powerup_appearing1.wav" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/TK_powerup_appearing1.wav" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/TK_walking1.wav" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/TK_walking1.wav" afterDir="false" />
     </list>
     <list id="efd847ef-1253-4699-befb-b5b3e16f6a44" name="Changes by BE" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/java/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Monster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Monster.java" afterDir="false" />
+    </list>
+    <list id="aeee5d79-06f2-419b-b662-0d86d7ce5e94" name="Changes by FrøydisSpillum" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/java/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Game.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,8 +44,26 @@
   <component name="LineStatusTrackerManager">
     <file path="$PROJECT_DIR$/src/main/java/Monster.java">
       <ranges>
-        <range start1="12" end1="13" start2="12" end2="14" changelist="efd847ef-1253-4699-befb-b5b3e16f6a44" />
-        <range start1="35" end1="35" start2="36" end2="37" changelist="d0aadc98-c7c3-43cf-8809-b6be0118ff0c" />
+        <range start1="0" end1="1" start2="0" end2="1" changelist="d0aadc98-c7c3-43cf-8809-b6be0118ff0c" />
+        <range start1="5" end1="7" start2="5" end2="5" changelist="d0aadc98-c7c3-43cf-8809-b6be0118ff0c" />
+        <range start1="12" end1="13" start2="10" end2="12" changelist="efd847ef-1253-4699-befb-b5b3e16f6a44" />
+        <range start1="14" end1="15" start2="13" end2="13" changelist="d0aadc98-c7c3-43cf-8809-b6be0118ff0c" />
+        <range start1="18" end1="19" start2="16" end2="18" changelist="d0aadc98-c7c3-43cf-8809-b6be0118ff0c" />
+        <range start1="22" end1="26" start2="21" end2="24" changelist="d0aadc98-c7c3-43cf-8809-b6be0118ff0c" />
+        <range start1="29" end1="33" start2="27" end2="30" changelist="d0aadc98-c7c3-43cf-8809-b6be0118ff0c" />
+        <range start1="35" end1="36" start2="32" end2="32" changelist="d0aadc98-c7c3-43cf-8809-b6be0118ff0c" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/src/main/java/Game.java">
+      <ranges>
+        <range start1="8" end1="9" start2="8" end2="9" changelist="d0aadc98-c7c3-43cf-8809-b6be0118ff0c" />
+        <range start1="29" end1="30" start2="29" end2="32" changelist="efd847ef-1253-4699-befb-b5b3e16f6a44" />
+        <range start1="32" end1="33" start2="34" end2="37" changelist="efd847ef-1253-4699-befb-b5b3e16f6a44" />
+        <range start1="35" end1="36" start2="39" end2="42" changelist="efd847ef-1253-4699-befb-b5b3e16f6a44" />
+        <range start1="38" end1="39" start2="44" end2="48" changelist="efd847ef-1253-4699-befb-b5b3e16f6a44" />
+        <range start1="42" end1="43" start2="51" end2="51" changelist="d0aadc98-c7c3-43cf-8809-b6be0118ff0c" />
+        <range start1="44" end1="45" start2="52" end2="53" changelist="d0aadc98-c7c3-43cf-8809-b6be0118ff0c" />
+        <range start1="54" end1="54" start2="62" end2="66" changelist="aeee5d79-06f2-419b-b662-0d86d7ce5e94" />
       </ranges>
     </file>
   </component>
@@ -109,7 +127,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1667914425350</updated>
-      <workItem from="1667979545287" duration="7407000" />
+      <workItem from="1667979545287" duration="10278000" />
     </task>
     <task id="LOCAL-00001" summary="Prototype">
       <created>1667981660132</created>
@@ -125,7 +143,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667982418287</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Refactoring and added sounds.">
+      <created>1667987169137</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1667987169137</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -145,6 +170,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Prototype" />
     <MESSAGE value="Player starts from the middle" />
-    <option name="LAST_COMMIT_MESSAGE" value="Player starts from the middle" />
+    <MESSAGE value="Refactoring and added sounds." />
+    <MESSAGE value="Sound working!!" />
+    <option name="LAST_COMMIT_MESSAGE" value="Sound working!!" />
   </component>
 </project>
