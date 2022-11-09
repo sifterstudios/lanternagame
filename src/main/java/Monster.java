@@ -33,4 +33,8 @@ public class Monster extends Entity {
         stepTimer++;
 
     }
+
+    public void spawnTimer() {
+
+    }
 }

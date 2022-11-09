@@ -4,12 +4,15 @@ public class Entity {
     private int y;
 
 
-
     public Entity(int x, int y) {
-        this. x = x;
-        this. y = y;
+        this.x = x;
+        this.y = y;
     }
 
+    public Entity() {
+        x = 0;
+        y = 0;
+    }
 
 
     // kan bruke en int[] for å get/set x/y samtidig
