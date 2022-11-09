@@ -1,10 +1,31 @@
+import java.io.IOException;
+import java.util.Random;
+
 public class Monster extends Entity {
 
     public final char monsterChar = 'X';
+    private final int minDistanceFromPlayer= 7;
 
 
     public Monster(int x, int y) {
         super(x, y);
+    }
+    public Monster() throws IOException {
+        getRandomPosition();
+    }
+
+    private void getRandomPosition() throws IOException {
+        int playerX = Player.getInstance().getX();
+        int playerY = Player.getInstance().getY();
+        Random rd = new Random();
+        boolean abovePlayer = rd.nextBoolean();
+        boolean leftOfPlayer = rd.nextBoolean();
+
+        setX(leftOfPlayer ? rd.nextInt(playerX - minDistanceFromPlayer)
+                : rd.nextInt(playerX + minDistanceFromPlayer, GameTerminal.getInstance().t.getTerminalSize().getColumns()));
+        setY(abovePlayer ? rd.nextInt(playerY - minDistanceFromPlayer)
+                : rd.nextInt(playerY + minDistanceFromPlayer, GameTerminal.getInstance().t.getTerminalSize().getRows()));
+
     }
 
 
@@ -31,10 +52,6 @@ public class Monster extends Entity {
             stepTimer = 0;
         }
         stepTimer++;
-
-    }
-
-    public void spawnTimer() {
 
     }
 }

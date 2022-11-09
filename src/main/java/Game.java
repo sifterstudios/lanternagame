@@ -1,6 +1,4 @@
-import com.googlecode.lanterna.gui2.Panel;
 import com.googlecode.lanterna.input.KeyStroke;
-import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
 
 import java.io.IOException;
@@ -8,18 +6,16 @@ import java.io.IOException;
 public class Game {
     public void run() throws IOException, InterruptedException {
         Sound.music.playLooped();
-        DefaultTerminalFactory d = new DefaultTerminalFactory();
-        Terminal t = d.createTerminal();
+        Terminal t = GameTerminal.getInstance().t;
 
-        Monster mon1 = new Monster(10,10);
-        Player player = Player.getInstance();
-        player.setX(t.getTerminalSize().getColumns()/2);
-        player.setY(t.getTerminalSize().getRows()/2);
+        Player.getInstance().setX(t.getTerminalSize().getColumns()/2);
+        Player.getInstance().setY(t.getTerminalSize().getRows()/2);
+        Monster mon1 = new Monster();
 
 
 
         t.setCursorVisible(false);
-        KeyStroke keyStroke = null;
+        KeyStroke keyStroke;
 
         new Thread(){
         }.start();
@@ -33,26 +29,26 @@ public class Game {
 
             switch (keyStroke.getCharacter()) {
                 case 'w':
-                    if (player.getY() > 1) {
-                        player.setY(player.getY() - 1);
+                    if (Player.getInstance().getY() > 1) {
+                        Player.getInstance().setY(Player.getInstance().getY() - 1);
                         Sound.walk.play();
                     }
                     break;
                 case 's':
-                    if (player.getY() < t.getTerminalSize().getRows() - 1) {
-                        player.setY(player.getY() + 1);
+                    if (Player.getInstance().getY() < t.getTerminalSize().getRows() - 1) {
+                        Player.getInstance().setY(Player.getInstance().getY() + 1);
                         Sound.walk.play();
                     }
                     break;
                 case 'a':
-                    if (player.getX() > 1) {
-                        player.setX(player.getX() - 1);
+                    if (Player.getInstance().getX() > 1) {
+                        Player.getInstance().setX(Player.getInstance().getX() - 1);
                         Sound.walk.play();
                     }
                     break;
                 case 'd':
-                    if (player.getX() < t.getTerminalSize().getColumns() - 1) {
-                        player.setX(player.getX() + 1);
+                    if (Player.getInstance().getX() < t.getTerminalSize().getColumns() - 1) {
+                        Player.getInstance().setX(Player.getInstance().getX() + 1);
                         Sound.walk.play();
                     }
                     break;
@@ -60,14 +56,14 @@ public class Game {
             t.clearScreen();
 
             //monster(s)
-            mon1.FollowPlayer(player.getX(), player.getY());
+            mon1.FollowPlayer(Player.getInstance().getX(), Player.getInstance().getY());
             t.setCursorPosition(mon1.getX(), mon1.getY());
             t.putCharacter(mon1.monsterChar);
 
 
-            //player
-            t.setCursorPosition(player.getX(), player.getY());
-            t.putCharacter(player.playerChar);
+            //Player.getInstance()
+            t.setCursorPosition(Player.getInstance().getX(), Player.getInstance().getY());
+            t.putCharacter(Player.getInstance().playerChar);
 
             t.flush();
 
