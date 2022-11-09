@@ -1,6 +1,8 @@
 public class Player extends Entity{
 
-    public final char playerChar = 'O';
+    public char playerChar = 'O';
+
+    private Color GREEN;
 
     private static final Player instance = new Player();
 
