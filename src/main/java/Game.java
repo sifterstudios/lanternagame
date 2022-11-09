@@ -8,32 +8,31 @@ public class Game {
     public void run() throws IOException, InterruptedException {
         Sound.music.playLooped();
         Terminal t = GameTerminal.getInstance().t;
-        var Monsters = MonsterSpawner.getInstance().allAlive;
+        var monsters = MonsterSpawner.getInstance().allAlive;
         var p = Player.getInstance();
 
         p.setX(t.getTerminalSize().getColumns()/2);
         p.setY(t.getTerminalSize().getRows()/2);
-        Monster mon1 = new Monster();
+        monsters.add(new Monster());
 
         t.setCursorVisible(false);
         KeyStroke keyStroke;
-
-        new Thread(){
-        }.start();
 
         while (true) {
 
             do {
                 Thread.sleep(5); // might throw InterruptedException
+                MonsterSpawner.getInstance().spawnTimer();
                 keyStroke = t.pollInput();
             } while (keyStroke == null);
+            Monster[] mToArray = monsters.toArray(new Monster[monsters.size()]);
 
             switch (keyStroke.getCharacter()) {
                 case 'w':
                     if (p.getY() > 1) {
                         p.setY(p.getY() - 1);
                         Sound.walk.play();
-                        if(collisionChecker.hasColide(p.getX(),p.getY(),mon1.getX(),mon1.getY() ) )
+                        if(collisionChecker.hasColide(p.getX(),p.getY(),mToArray[0].getX(),mToArray[0].getY() ) )
                             System.out.println("wwwwww");// gameover
                     }
                     break;
@@ -41,7 +40,7 @@ public class Game {
                     if (p.getY() < t.getTerminalSize().getRows() - 1) {
                         p.setY(p.getY() + 1);
                         Sound.walk.play();
-                        if(collisionChecker.hasColide(p.getX(),p.getY(),mon1.getX(),mon1.getY() ) )
+                        if(collisionChecker.hasColide(p.getX(),p.getY(),mToArray[0].getX(),mToArray[0].getY() ) )
                             System.out.println("ssssss");
                     }
                     break;
@@ -49,7 +48,7 @@ public class Game {
                     if (p.getX() > 1) {
                         p.setX(p.getX() - 1);
                         Sound.walk.play();
-                        if(collisionChecker.hasColide(p.getX(),p.getY(),mon1.getX(),mon1.getY() ) )
+                        if(collisionChecker.hasColide(p.getX(),p.getY(),mToArray[0].getX(),mToArray[0].getY() ) )
                             System.out.println("aaaaaaaa");
                     }
                     break;
@@ -57,7 +56,7 @@ public class Game {
                     if (p.getX() < t.getTerminalSize().getColumns() - 1) {
                         p.setX(p.getX() + 1);
                         Sound.walk.play();
-                        if(collisionChecker.hasColide(p.getX(),p.getY(),mon1.getX(),mon1.getY() ) )
+                        if(collisionChecker.hasColide(p.getX(),p.getY(),mToArray[0].getX(),mToArray[0].getY() ) )
                             System.out.println("dddddddd");
                     }
                     break;
@@ -65,10 +64,11 @@ public class Game {
             t.clearScreen();
 
             //monster(s)
-            mon1.FollowPlayer(p.getX(), p.getY());
-            t.setCursorPosition(mon1.getX(), mon1.getY());
-            t.putCharacter(mon1.monsterChar);
-
+            for (Monster monster : monsters) {
+                monster.FollowPlayer(p.getX(), p.getY());
+                t.setCursorPosition(monster.getX(), monster.getY());
+                t.putCharacter(monster.monsterChar);
+            }
 
             //p
             t.setCursorPosition(p.getX(), p.getY());
