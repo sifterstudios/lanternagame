@@ -55,7 +55,7 @@ public class Game {
             t.clearScreen();
 
             //monster(s)
-            mon1.monsterFollowPlayer(player.getX(), player.getY());
+            mon1.FollowPlayer(player.getX(), player.getY());
             t.setCursorPosition(mon1.getX(), mon1.getY());
             t.putCharacter(mon1.monsterChar);
 

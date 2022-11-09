@@ -4,14 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d0aadc98-c7c3-43cf-8809-b6be0118ff0c" name="Changes" comment="Sound working!!" />
-    <list id="efd847ef-1253-4699-befb-b5b3e16f6a44" name="Changes by BE" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Monster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Monster.java" afterDir="false" />
-    </list>
-    <list id="aeee5d79-06f2-419b-b662-0d86d7ce5e94" name="Changes by FrøydisSpillum" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Game.java" afterDir="false" />
-    </list>
+    <list default="true" id="d0aadc98-c7c3-43cf-8809-b6be0118ff0c" name="Changes" comment="Changed if statements to switch loop in Game.java" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -26,17 +19,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/src/main/java/Game.java">
-      <ranges>
-        <range start1="29" end1="30" start2="29" end2="32" changelist="efd847ef-1253-4699-befb-b5b3e16f6a44" />
-        <range start1="32" end1="33" start2="34" end2="37" changelist="efd847ef-1253-4699-befb-b5b3e16f6a44" />
-        <range start1="35" end1="36" start2="39" end2="42" changelist="efd847ef-1253-4699-befb-b5b3e16f6a44" />
-        <range start1="38" end1="39" start2="44" end2="48" changelist="efd847ef-1253-4699-befb-b5b3e16f6a44" />
-        <range start1="53" end1="53" start2="62" end2="66" changelist="aeee5d79-06f2-419b-b662-0d86d7ce5e94" />
-      </ranges>
-    </file>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -99,7 +81,7 @@
       <option name="presentableId" value="Default" />
       <updated>1667914425350</updated>
       <workItem from="1667979545287" duration="10278000" />
-      <workItem from="1667992704251" duration="365000" />
+      <workItem from="1667992704251" duration="735000" />
     </task>
     <task id="LOCAL-00001" summary="Prototype">
       <created>1667981660132</created>
@@ -129,7 +111,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667992824124</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Changed if statements to switch loop in Game.java">
+      <created>1667993433266</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1667993433266</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -151,6 +140,7 @@
     <MESSAGE value="Player starts from the middle" />
     <MESSAGE value="Refactoring and added sounds." />
     <MESSAGE value="Sound working!!" />
-    <option name="LAST_COMMIT_MESSAGE" value="Sound working!!" />
+    <MESSAGE value="Changed if statements to switch loop in Game.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed if statements to switch loop in Game.java" />
   </component>
 </project>

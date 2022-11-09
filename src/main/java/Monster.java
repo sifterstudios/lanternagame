@@ -14,7 +14,7 @@ public class Monster extends Entity {
 
     private int stepTimer = 0;
 
-    public void monsterFollowPlayer(int playerX, int playerY) {
+    public void FollowPlayer(int playerX, int playerY) {
 
         if (stepTimer > 2) {
             if (playerX > super.getX()) {
