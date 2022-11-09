@@ -4,6 +4,7 @@ import com.googlecode.lanterna.terminal.Terminal;
 import java.io.IOException;
 
 public class Game {
+    CollisionChecker collisionChecker = new CollisionChecker();
     public void run() throws IOException, InterruptedException {
         Sound.music.playLooped();
         Terminal t = GameTerminal.getInstance().t;
@@ -32,24 +33,32 @@ public class Game {
                     if (Player.getInstance().getY() > 1) {
                         Player.getInstance().setY(Player.getInstance().getY() - 1);
                         Sound.walk.play();
+                        if(collisionChecker.hasColide(player.getX(),player.getY(),mon1.getX(),mon1.getY() ) )
+                            System.out.println("wwwwww");// gameover
                     }
                     break;
                 case 's':
                     if (Player.getInstance().getY() < t.getTerminalSize().getRows() - 1) {
                         Player.getInstance().setY(Player.getInstance().getY() + 1);
                         Sound.walk.play();
+                        if(collisionChecker.hasColide(player.getX(),player.getY(),mon1.getX(),mon1.getY() ) )
+                            System.out.println("ssssss");
                     }
                     break;
                 case 'a':
                     if (Player.getInstance().getX() > 1) {
                         Player.getInstance().setX(Player.getInstance().getX() - 1);
                         Sound.walk.play();
+                        if(collisionChecker.hasColide(player.getX(),player.getY(),mon1.getX(),mon1.getY() ) )
+                            System.out.println("aaaaaaaa");
                     }
                     break;
                 case 'd':
                     if (Player.getInstance().getX() < t.getTerminalSize().getColumns() - 1) {
                         Player.getInstance().setX(Player.getInstance().getX() + 1);
                         Sound.walk.play();
+                        if(collisionChecker.hasColide(player.getX(),player.getY(),mon1.getX(),mon1.getY() ) )
+                            System.out.println("dddddddd");
                     }
                     break;
             }
