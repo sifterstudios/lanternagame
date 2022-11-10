@@ -88,6 +88,8 @@ public class Game {
         }
 
         t.clearScreen();
+        t.setCursorPosition(0,0);
+        t.putString("HIGHSCORE: " + score.getScore());
         t.setCursorPosition((t.getTerminalSize().getColumns() / 2) - 4, t.getTerminalSize().getRows() / 2);
         t.putString("GAME OVER");
         t.flush();
