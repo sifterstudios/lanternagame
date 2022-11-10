@@ -100,10 +100,10 @@ public class Game {
         t.setCursorPosition(0,0);
         t.putString("HIGHSCORE: " + score.getScore());
 
-        for (int i = 1; i < t.getTerminalSize().getRows(); i++) {
+        for (int i = 2; i < t.getTerminalSize().getRows(); i++) {
             for (int j = 0; j < t.getTerminalSize().getColumns(); j++) {
-                if (i == 1) {
-                    t.setCursorPosition(j,1);
+                if (i == 2) {
+                    t.setCursorPosition(j,2);
                     t.putCharacter('▓');
                 }
                 if (i == t.getTerminalSize().getRows()-1) {
