@@ -2,9 +2,19 @@ public class CollisionChecker {
 
     public boolean hasColide(int playerX,int playerY,int monsterX, int monsterY)
     {
-        System.out.println("player : " + playerX + "," + playerY);
-        System.out.println("monster : " + monsterX + "," + monsterY);
-        return (playerX==monsterX &&playerY==monsterY) ;
+        int mx = monster.getX();
+        int my = monster.getY();
+        int px = player.getX();
+        int py = player.getY();
+
+        if (mx == px && my == py) {
+            System.out.println("---COLLISION---");
+            System.out.println("player : " + px + "," + py);
+            System.out.println("monster : " + mx + "," + my);
+            System.out.println("---------------");
+            return true;
+        }
+            return false;
     }
 
 

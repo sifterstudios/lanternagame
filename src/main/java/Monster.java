@@ -15,8 +15,8 @@ public class Monster extends Entity {
     }
 
     private void getRandomPosition() throws IOException {
-        int playerX = Player.getInstance().getX();
-        int playerY = Player.getInstance().getY();
+        int playerX = Player.getInstance().getPosition().getX();
+        int playerY = Player.getInstance().getPosition().getY();
 
         if (playerX < minDistanceFromPlayer) {
             playerX = minDistanceFromPlayer + 3;

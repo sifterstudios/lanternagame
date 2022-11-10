@@ -52,33 +52,34 @@ public class Game {
             //assert keyStroke != null;
             if (keyStroke.getCharacter() == null) break;
             switch (keyStroke.getCharacter()) {
+
                 case 'w':
-                    if (p.getY() > 1) {
-                        p.setY(p.getY() - 1);
+                    if (py > 3) {
+                        p.setPosition(new Position(px, py - 1));
                         Sound.walk.play();
                         if(collisionChecker.hasColide(p.getX(),p.getY(),mToArray[0].getX(),mToArray[0].getY() ) )
                             System.out.println("wwwwww");// gameover
                     }
                     break;
                 case 's':
-                    if (p.getY() < t.getTerminalSize().getRows() - 1) {
-                        p.setY(p.getY() + 1);
+                    if (py < t.getTerminalSize().getRows() - 1) {
+                        p.setPosition(new Position(px, py + 1));
                         Sound.walk.play();
                         if(collisionChecker.hasColide(p.getX(),p.getY(),mToArray[0].getX(),mToArray[0].getY() ) )
                             System.out.println("ssssss");
                     }
                     break;
                 case 'a':
-                    if (p.getX() > 1) {
-                        p.setX(p.getX() - 1);
+                    if (px > 1) {
+                        p.setPosition(new Position(px - 1, py));
                         Sound.walk.play();
                         if(collisionChecker.hasColide(p.getX(),p.getY(),mToArray[0].getX(),mToArray[0].getY() ) )
                             System.out.println("aaaaaaaa");
                     }
                     break;
                 case 'd':
-                    if (p.getX() < t.getTerminalSize().getColumns() - 1) {
-                        p.setX(p.getX() + 1);
+                    if (px < t.getTerminalSize().getColumns() - 1) {
+                        p.setPosition(new Position(px + 1, py));
                         Sound.walk.play();
                         if(collisionChecker.hasColide(p.getX(),p.getY(),mToArray[0].getX(),mToArray[0].getY() ) )
                             System.out.println("dddddddd");
@@ -87,5 +88,11 @@ public class Game {
             }
             updateScreen(t, score);
         }
+
+        t.clearScreen();
+        t.setCursorPosition((t.getTerminalSize().getColumns() / 2) - 4, t.getTerminalSize().getRows() / 2);
+        t.putString("GAME OVER");
+        t.flush();
+        Sound.death.play();
     }
 }

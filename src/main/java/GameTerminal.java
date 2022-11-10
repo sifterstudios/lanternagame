@@ -7,6 +7,10 @@ public class GameTerminal {
     DefaultTerminalFactory d;
     Terminal t;
 
+
+
+
+
     public static final GameTerminal instance;
 
     static {
