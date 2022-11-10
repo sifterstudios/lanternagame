@@ -1,6 +1,6 @@
 public class CollisionChecker {
 
-    public boolean hasColide(int playerX,int playerY,int monsterX, int monsterY)
+    public boolean hasCollided(Position monster, Position player)
     {
         int mx = monster.getX();
         int my = monster.getY();

@@ -4,12 +4,13 @@ import java.util.Random;
 public class Monster extends Entity {
 
     public final char monsterChar = 'X';
-    private final int minDistanceFromPlayer= 7;
+    private final int minDistanceFromPlayer = 7;
 
 
-    public Monster(int x, int y) {
-        super(x, y);
+    public Monster(Position position) {
+        super(position);
     }
+
     public Monster() throws IOException {
         getRandomPosition();
     }
@@ -20,7 +21,8 @@ public class Monster extends Entity {
 
         if (playerX < minDistanceFromPlayer) {
             playerX = minDistanceFromPlayer + 3;
-        }if (playerY < minDistanceFromPlayer) {
+        }
+        if (playerY < minDistanceFromPlayer) {
             playerY = minDistanceFromPlayer + 3;
         }
 
@@ -28,11 +30,10 @@ public class Monster extends Entity {
         boolean abovePlayer = rd.nextBoolean();
         boolean leftOfPlayer = rd.nextBoolean();
 
-        setX(leftOfPlayer ? rd.nextInt(playerX - minDistanceFromPlayer)
-                : rd.nextInt(playerX + minDistanceFromPlayer, GameTerminal.getInstance().t.getTerminalSize().getColumns()));
-        setY(abovePlayer ? rd.nextInt(playerY - minDistanceFromPlayer)
-                : rd.nextInt(playerY + minDistanceFromPlayer, GameTerminal.getInstance().t.getTerminalSize().getRows()));
+        int x = rd.nextInt(GameTerminal.getInstance().t.getTerminalSize().getColumns());
+        int y = rd.nextInt(GameTerminal.getInstance().t.getTerminalSize().getRows());
 
+        setPosition(new Position(x, y));
     }
 
 
@@ -42,20 +43,27 @@ public class Monster extends Entity {
 
     private int stepTimer = 0;
 
-    public void FollowPlayer(int playerX, int playerY) {
+    public void FollowPlayer(Position position) {
+        //metode kalles av monster objekt med arg player.pos
 
         if (stepTimer > 2) {
-            if (playerX > super.getX()) {
-                super.setX(super.getX() + 1);
-            } else if (playerX < super.getX()) {
-                super.setX(super.getX() - 1);
-            }
+            int mx = super.getPosition().getX();
+            int my = super.getPosition().getY();
+            int px = position.getX();
+            int py = position.getY();
 
-            if (playerY > super.getY()) {
-                super.setY(super.getY() + 1);
-            } else if (playerY < super.getY()) {
-                super.setY(super.getY() - 1);
+
+            if (px > mx) {
+                mx++;
+            } else if (position.getX() < mx) {
+                mx--;
             }
+            if (py > my) {
+                my++;
+            } else if (py < my) {
+                my--;
+            }
+            super.setPosition(new Position(mx,my));
             stepTimer = 0;
         }
         stepTimer++;

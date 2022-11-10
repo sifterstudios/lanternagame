@@ -5,14 +5,18 @@ import java.io.IOException;
 
 public class Game {
     CollisionChecker collisionChecker = new CollisionChecker();
+    private boolean isDead = false;
+
     public void run() throws IOException, InterruptedException {
 //        Sound.music.playLooped();
         Terminal t = GameTerminal.getInstance().t;
         var monsters = MonsterSpawner.getInstance().allAlive;
         var p = Player.getInstance();
+        int tick = 0;
+        HighScore score = new HighScore();
 
-        p.setX(t.getTerminalSize().getColumns()/2);
-        p.setY(t.getTerminalSize().getRows()/2);
+
+        p.setPosition(new Position((t.getTerminalSize().getColumns() / 2), (t.getTerminalSize().getRows() / 2)));
         monsters.add(new Monster());
 
         t.setCursorVisible(false);
@@ -57,32 +61,24 @@ public class Game {
                     if (py > 3) {
                         p.setPosition(new Position(px, py - 1));
                         Sound.walk.play();
-                        if(collisionChecker.hasColide(p.getX(),p.getY(),mToArray[0].getX(),mToArray[0].getY() ) )
-                            System.out.println("wwwwww");// gameover
                     }
                     break;
                 case 's':
                     if (py < t.getTerminalSize().getRows() - 1) {
                         p.setPosition(new Position(px, py + 1));
                         Sound.walk.play();
-                        if(collisionChecker.hasColide(p.getX(),p.getY(),mToArray[0].getX(),mToArray[0].getY() ) )
-                            System.out.println("ssssss");
                     }
                     break;
                 case 'a':
                     if (px > 1) {
                         p.setPosition(new Position(px - 1, py));
                         Sound.walk.play();
-                        if(collisionChecker.hasColide(p.getX(),p.getY(),mToArray[0].getX(),mToArray[0].getY() ) )
-                            System.out.println("aaaaaaaa");
                     }
                     break;
                 case 'd':
                     if (px < t.getTerminalSize().getColumns() - 1) {
                         p.setPosition(new Position(px + 1, py));
                         Sound.walk.play();
-                        if(collisionChecker.hasColide(p.getX(),p.getY(),mToArray[0].getX(),mToArray[0].getY() ) )
-                            System.out.println("dddddddd");
                     }
                     break;
             }
@@ -94,5 +90,25 @@ public class Game {
         t.putString("GAME OVER");
         t.flush();
         Sound.death.play();
+    }
+
+    public void updateScreen(Terminal t, HighScore score) throws IOException {
+        t.clearScreen();
+        t.setCursorPosition(0,0);
+        t.putString("HIGHSCORE: " + score.getScore());
+        for (Monster monster : MonsterSpawner.getInstance().allAlive) {
+            if (collisionChecker.hasCollided(monster.getPosition(), Player.getInstance().getPosition())) {
+                isDead = true;
+                break;
+            }
+            t.setCursorPosition(monster.getPosition().getX(), monster.getPosition().getY());
+            t.putCharacter(monster.monsterChar);
+        }
+
+        //p
+        t.setCursorPosition(Player.getInstance().getPosition().getX(), Player.getInstance().getPosition().getY());
+        t.putCharacter(Player.getInstance().playerChar);
+
+        t.flush();
     }
 }
