@@ -1,9 +1,12 @@
+import com.googlecode.lanterna.TextColor;
+
 import java.io.IOException;
 import java.util.Random;
 
 public class Monster extends Entity {
 
-    public final char monsterChar = 'X';
+    public final char monsterChar = '៙';
+    public TextColor color = TextColor.ANSI.RED;
     private final int minDistanceFromPlayer = 7;
 
 
@@ -67,6 +70,5 @@ public class Monster extends Entity {
             stepTimer = 0;
         }
         stepTimer++;
-
     }
 }

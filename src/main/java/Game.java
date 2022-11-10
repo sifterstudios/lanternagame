@@ -1,3 +1,4 @@
+import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.input.KeyStroke;
 import com.googlecode.lanterna.terminal.Terminal;
 
@@ -98,8 +99,10 @@ public class Game {
     public void updateScreen(Terminal t, HighScore score) throws IOException {
         t.clearScreen();
         t.setCursorPosition(0,0);
+        t.setForegroundColor(TextColor.ANSI.WHITE_BRIGHT);
         t.putString("HIGHSCORE: " + score.getScore());
         for (Monster monster : MonsterSpawner.getInstance().allAlive) {
+            t.setForegroundColor(monster.color);
             if (collisionChecker.hasCollided(monster.getPosition(), Player.getInstance().getPosition())) {
                 isDead = true;
                 break;
@@ -110,6 +113,7 @@ public class Game {
 
         //p
         t.setCursorPosition(Player.getInstance().getPosition().getX(), Player.getInstance().getPosition().getY());
+        t.setForegroundColor(Player.getInstance().color);
         t.putCharacter(Player.getInstance().playerChar);
 
         t.flush();
