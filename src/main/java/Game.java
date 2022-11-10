@@ -67,7 +67,7 @@ public class Game {
                     }
                     break;
                 case 's':
-                    if (py < t.getTerminalSize().getRows() - 1) {
+                    if (py < t.getTerminalSize().getRows() - 2) {
                         p.setPosition(new Position(px, py + 1));
                         Sound.walk.play();
                     }
@@ -79,7 +79,7 @@ public class Game {
                     }
                     break;
                 case 'd':
-                    if (px < t.getTerminalSize().getColumns() - 1) {
+                    if (px < t.getTerminalSize().getColumns() - 2) {
                         p.setPosition(new Position(px + 1, py));
                         Sound.walk.play();
                     }
@@ -101,6 +101,28 @@ public class Game {
         t.setCursorPosition(0,0);
         t.setForegroundColor(TextColor.ANSI.WHITE_BRIGHT);
         t.putString("HIGHSCORE: " + score.getScore());
+
+        for (int i = 2; i < t.getTerminalSize().getRows(); i++) {
+            for (int j = 0; j < t.getTerminalSize().getColumns(); j++) {
+                if (i == 2) {
+                    t.setCursorPosition(j,2);
+                    t.putCharacter('▓');
+                }
+                if (i == t.getTerminalSize().getRows()-1) {
+                    t.setCursorPosition(j,t.getTerminalSize().getColumns()-1);
+                    t.putCharacter('▓');
+                }
+                else {
+                    t.setCursorPosition(0,i);
+                    t.putCharacter('▓');
+                    t.setCursorPosition(t.getTerminalSize().getColumns(),i);
+                    t.putCharacter('▓');
+                }
+
+            }
+
+        }
+
         for (Monster monster : MonsterSpawner.getInstance().allAlive) {
             t.setForegroundColor(monster.color);
             if (collisionChecker.hasCollided(monster.getPosition(), Player.getInstance().getPosition())) {
