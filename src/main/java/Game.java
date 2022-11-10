@@ -18,15 +18,39 @@ public class Game {
         t.setCursorVisible(false);
         KeyStroke keyStroke;
 
-        while (true) {
+
+        while (!isDead) {
 
             do {
                 Thread.sleep(5); // might throw InterruptedException
-                MonsterSpawner.getInstance().spawnTimer();
                 keyStroke = t.pollInput();
-            } while (keyStroke == null);
-            Monster[] mToArray = monsters.toArray(new Monster[monsters.size()]);
+                MonsterSpawner.getInstance().spawnTimer();
 
+                tick += 5;
+                for (Monster monster : MonsterSpawner.getInstance().allAlive) {
+                    if (tick > 500) {
+                        monster.FollowPlayer(p.getPosition());
+                        updateScreen(GameTerminal.getInstance().t, score);
+                    }
+                }
+                if (tick > 500) {
+                    score.incrementScore();
+                    tick = 0;
+                }
+
+                for (Monster monster : MonsterSpawner.getInstance().allAlive) {
+                    if (collisionChecker.hasCollided(monster.getPosition(), Player.getInstance().getPosition())) {
+                        isDead = true;
+                        break;
+                    }
+                }
+
+            } while (keyStroke == null && !isDead);
+
+            int px = p.getPosition().getX();
+            int py = p.getPosition().getY();
+            //assert keyStroke != null;
+            if (keyStroke.getCharacter() == null) break;
             switch (keyStroke.getCharacter()) {
                 case 'w':
                     if (p.getY() > 1) {
@@ -61,21 +85,7 @@ public class Game {
                     }
                     break;
             }
-            t.clearScreen();
-
-            //monster(s)
-            for (Monster monster : monsters) {
-                monster.FollowPlayer(p.getX(), p.getY());
-                t.setCursorPosition(monster.getX(), monster.getY());
-                t.putCharacter(monster.monsterChar);
-            }
-
-            //p
-            t.setCursorPosition(p.getX(), p.getY());
-            t.putCharacter(p.playerChar);
-
-            t.flush();
-
+            updateScreen(t, score);
         }
     }
 }
