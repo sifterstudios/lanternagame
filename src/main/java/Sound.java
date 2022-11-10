@@ -55,4 +55,10 @@ public class Sound {
             e.printStackTrace();
         }
     }
+
+    public void stop() {
+        if (clip.isRunning()) {
+            clip.stop();
+        }
+    }
 }

@@ -8,7 +8,7 @@ public class Game {
     private boolean isDead = false;
 
     public void run() throws IOException, InterruptedException {
-//        Sound.music.playLooped();
+        Sound.music.playLooped();
         Terminal t = GameTerminal.getInstance().t;
         var monsters = MonsterSpawner.getInstance().allAlive;
         var p = Player.getInstance();
@@ -45,6 +45,8 @@ public class Game {
                 for (Monster monster : MonsterSpawner.getInstance().allAlive) {
                     if (collisionChecker.hasCollided(monster.getPosition(), Player.getInstance().getPosition())) {
                         isDead = true;
+                        Sound.music.stop();
+                        Sound.death.play();
                         break;
                     }
                 }
@@ -89,7 +91,6 @@ public class Game {
         t.setCursorPosition((t.getTerminalSize().getColumns() / 2) - 4, t.getTerminalSize().getRows() / 2);
         t.putString("GAME OVER");
         t.flush();
-        Sound.death.play();
     }
 
     public void updateScreen(Terminal t, HighScore score) throws IOException {

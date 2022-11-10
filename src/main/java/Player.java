@@ -1,4 +1,4 @@
-public class Player extends Entity{
+public class Player extends Entity {
 
     public char playerChar = 'O';
 
@@ -8,5 +8,12 @@ public class Player extends Entity{
 
     public static Player getInstance() {
         return instance;
+    }
+
+    public Player(Position position) {
+        super(position);
+    }
+
+    public Player() {
     }
 }
