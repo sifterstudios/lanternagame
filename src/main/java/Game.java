@@ -6,7 +6,7 @@ import java.io.IOException;
 public class Game {
     CollisionChecker collisionChecker = new CollisionChecker();
     public void run() throws IOException, InterruptedException {
-        Sound.music.playLooped();
+//        Sound.music.playLooped();
         Terminal t = GameTerminal.getInstance().t;
         var monsters = MonsterSpawner.getInstance().allAlive;
         var p = Player.getInstance();
